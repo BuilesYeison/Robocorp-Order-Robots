@@ -8,7 +8,6 @@ from RPA.Archive import Archive
 
 from PIL import Image
 import io
-# https://robocorp.com/docs/courses/build-a-robot-python/store-order-receipt-as-pdf taking capture
 
 @task
 def order_robots_from_RobotSpareBin():
