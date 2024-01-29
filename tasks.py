@@ -8,6 +8,7 @@ from RPA.Archive import Archive
 
 from PIL import Image
 import io
+import os
 
 @task
 def order_robots_from_RobotSpareBin():
@@ -70,7 +71,8 @@ def store_receipt_as_pdf(order_number):
 def screenshot_robot(order_number):
     """Take page screenshoot"""
     page = browser.page()
-    image = Image.open(io.BytesIO(page.screenshot()))
+    image = Image.open(io.BytesIO(page.screenshot()))    
+    os.makedirs("output/receipts/images/", exist_ok=True)
     img_path = f"output/receipts/images/img_order_{order_number}.png"
     image.save(img_path)
     page.click("#order-another")
